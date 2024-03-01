@@ -7,12 +7,13 @@ import {
     SetMetadata
 } from '@nestjs/common'
 import { ConfigService } from '@nestjs/config'
-import { ApiTags, ApiOperation } from '@nestjs/swagger'
+import { ApiTags } from '@nestjs/swagger'
 
 import {  ApiKeyGuard } from '../../auth/guards/api-key/api-key.guard'
 import { MongoIdPipe } from '../../common/mongo-id/mongo-id.pipe'
 import { Public } from '../../auth/decortors/public.decorator'
 import { ProductsService } from '../services/products.service'
+
 import { CreateProductDto,UpdateProductDto,FilterProductsDto } from '../dtos/products.dto'
 
 @ApiTags('products')

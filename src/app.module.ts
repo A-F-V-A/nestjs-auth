@@ -5,6 +5,7 @@ import * as Joi from 'joi'
 import { ProductsModule } from './products/products.module'
 import { DatabaseModule } from './database/database.module'
 import { AuthModule } from './auth/auth.module';
+import { UsersModule } from './users/users.module';
 import config from './config'
 
 
@@ -24,9 +25,10 @@ import config from './config'
         API_KEY: Joi.string().required(),
       })
     }),
-    ProductsModule,
     DatabaseModule,
-    AuthModule
+    AuthModule,
+    ProductsModule,
+    UsersModule,
   ],
   controllers: [],
   providers: [],
