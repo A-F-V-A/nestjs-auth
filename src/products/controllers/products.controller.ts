@@ -2,16 +2,20 @@ import {
     Controller, Get, Post, Delete, Put,
     Param, Query, Body,
     HttpCode, HttpStatus,
-    Inject
+    Inject,
+    UseGuards,
+    SetMetadata
 } from '@nestjs/common'
 import { ConfigService } from '@nestjs/config'
 import { ApiTags, ApiOperation } from '@nestjs/swagger'
 
+import {  ApiKeyGuard } from '../../auth/guards/api-key/api-key.guard'
 import { MongoIdPipe } from '../../common/mongo-id/mongo-id.pipe'
 import { ProductsService } from '../services/products.service'
 import { CreateProductDto,UpdateProductDto,FilterProductsDto } from '../dtos/products.dto'
 
 @ApiTags('products')
+@UseGuards(ApiKeyGuard)
 @Controller('products')
 export class ProductsController {
 
@@ -21,8 +25,9 @@ export class ProductsController {
       private configService: ConfigService
   ) {}
 
-  @Get('global')
   @ApiOperation({summary: 'Env global'})
+  @Get('global')
+  @SetMetadata('isPublic', true)
   getGlobal(){
     const apiKey = this.configService.get('API_KEY')
     return {
