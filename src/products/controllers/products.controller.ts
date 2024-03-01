@@ -11,6 +11,7 @@ import { ApiTags, ApiOperation } from '@nestjs/swagger'
 
 import {  ApiKeyGuard } from '../../auth/guards/api-key/api-key.guard'
 import { MongoIdPipe } from '../../common/mongo-id/mongo-id.pipe'
+import { Public } from '../../auth/decortors/public.decorator'
 import { ProductsService } from '../services/products.service'
 import { CreateProductDto,UpdateProductDto,FilterProductsDto } from '../dtos/products.dto'
 
@@ -25,7 +26,7 @@ export class ProductsController {
       private configService: ConfigService
   ) {}
 
-  @ApiOperation({summary: 'Env global'})
+  @Public()
   @Get('global')
   @SetMetadata('isPublic', true)
   getGlobal(){

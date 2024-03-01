@@ -21,6 +21,7 @@ import config from './config'
         DB_PORT: Joi.number().required(),
         DB_HOST: Joi.string().required(),
         DB_CONNECTION: Joi.string().required(),
+        API_KEY: Joi.string().required(),
       })
     }),
     ProductsModule,

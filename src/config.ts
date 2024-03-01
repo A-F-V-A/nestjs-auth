@@ -9,6 +9,7 @@ export default registerAs('config', () => {
       port       : parseInt( process.env.DB_PORT,10),
       host       : process.env.DB_HOST,
       connection : process.env.DB_CONNECTION,
-    }
+    },
+    apiKey: process.env.API_KEY
   }
 })
