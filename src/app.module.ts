@@ -23,6 +23,7 @@ import config from './config'
         DB_HOST: Joi.string().required(),
         DB_CONNECTION: Joi.string().required(),
         API_KEY: Joi.string().required(),
+        JWT_SECRET: Joi.string().required(),
       })
     }),
     DatabaseModule,

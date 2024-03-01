@@ -10,6 +10,8 @@ export default registerAs('config', () => {
       host       : process.env.DB_HOST,
       connection : process.env.DB_CONNECTION,
     },
-    apiKey: process.env.API_KEY
+    apiKey: process.env.API_KEY,
+    jwtSecret: process.env.JWT_SECRET,
+
   }
 })
